@@ -23,7 +23,10 @@ classifiers = [ # Optional
   "Programming Language :: Python :: 3 :: Only",
 ]
 dependencies = [
-  "matplotlib"
+  "matplotlib",
+  "ipython",
+  "pyqt6",
+  "shapely"
 ]
 
 
