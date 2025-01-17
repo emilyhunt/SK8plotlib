@@ -1,1 +1,1 @@
-from .sk8plotlib import SK8plotlib
+from .sk8plotlib import sk8plot
