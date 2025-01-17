@@ -1,0 +1,59 @@
+[project]
+name = "SK8plotlib" # Required
+version = "0.0.1" # Required
+description = "Turn any matplotlib line chart into a line skateboarding game." # Optional
+readme = "README.md" # Optional
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["matplotlib"] # Optional
+authors = [
+  { name = "Emily Hunt", email = "emily.hunt.physics@gmail.com" }, # Optional
+]
+maintainers = [
+  { name = "Emily Hunt", email = "emily.hunt.physics@gmail.com" }, # Optional
+]
+classifiers = [ # Optional
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+  "matplotlib"
+]
+
+
+[project.optional-dependencies]
+dev = [
+#   "mkdocs-material[imaging]",
+#   "mkdocstrings[python]>=0.18",
+#   "check-manifest",  # dont know what this one does lol
+#   "pytest",
+  "ruff",
+]
+# docs = [
+#   "mkdocs-material[imaging]",
+#   "mkdocstrings[python]>=0.18",
+# ] # For building docs on GitHub
+# test = ["pytest"]
+
+[project.urls] # Optional
+"Homepage" = "https://github.com/emilyhunt/SK8plotlib"
+"Bug Reports" = "https://github.com/emilyhunt/SK8plotlib/issues"
+"Source" = "https://github.com/emilyhunt/SK8plotlib"
+
+# [tool.pytest.ini_options]
+# pythonpath = "src"
+# addopts = ["--import-mode=importlib"]
+# testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 88
