@@ -35,6 +35,12 @@ Alternatively, you can load example maps by running SK8plotlib on the command li
 python -m sk8plotlib
 ```
 
+## Controls
+
+While on a surface, you can use the `left`/`right` arrow keys to go left or right.
+
+While in the air, you can use `up`/`down` to rotate your skateboard.
+
 ## Roadmap
 
 Planned features before v0.1:
