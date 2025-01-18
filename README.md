@@ -1,5 +1,9 @@
 # SK8plotlib
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/5d922753-74e5-4119-8ff5-de70ff55d4c8" width="500" />
+</p>
+
 Turn any matplotlib line chart into a line skateboarding game.
 
 > [!CAUTION]
