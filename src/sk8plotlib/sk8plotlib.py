@@ -1,6 +1,5 @@
 import matplotlib
 import matplotlib.pyplot as plt
-import numpy as np
 from matplotlib.figure import Figure
 from matplotlib.animation import FuncAnimation
 from .variables import MAX_FRAMERATE, MIN_TIMESTEP

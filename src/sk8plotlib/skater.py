@@ -2,7 +2,6 @@ from sk8plotlib.physics import PhysicsPoint
 from matplotlib.markers import MarkerStyle
 from matplotlib.transforms import Affine2D
 from .input import UserInput
-import numpy as np
 
 
 _skater_points = [
