@@ -18,11 +18,11 @@ pip install sk8plotlib
 Turn any matplotlib line chart into a skatepark with:
 
 ```python
-from sk8plotlib import sk8plotlib
+import sk8plotlib.sk8plot as sk8
 
 # ... create a matplotlib figure
 
-sk8plotlib(fig)
+sk8(fig)
 ```
 
 Alternatively, you can load example maps by running SK8plotlib on the command line, such as by doing:
@@ -30,3 +30,25 @@ Alternatively, you can load example maps by running SK8plotlib on the command li
 ```bash
 python -m sk8plotlib
 ```
+
+## Roadmap
+
+Planned features before v0.1:
+
+- ~~Automatic detection of lines in plot~~
+- ~~Basic physics simulation (single accelerating point)~~
+- ~~Basic collision detection (skateboard only)~~
+- ~~Skateboard rotation on surfaces~~
+- ~~User control input~~
+- Smooth camera
+- Automatic map scaling
+- Auto-initialize in correct location
+
+Planned future features:
+
+- Improved player character
+- ~~Improved collisions~~ (had to be done sooner than planned...)
+- Improved graphics
+- Music
+- Support for log plots
+- Scoring system?
