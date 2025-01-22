@@ -50,6 +50,14 @@ class Skater:
     @property
     def rotation(self):
         return self.physics.rotation
+    
+    @property
+    def position(self):
+        return self.physics.position
+    
+    @property
+    def velocity(self):
+        return self.physics.velocity
 
     def draw(self):
         self.marker = MarkerStyle(
