@@ -14,7 +14,7 @@ matplotlib.use("QtAgg")
 
 def sk8plot(fig: Figure):
     animator = PlotAnimator(fig)
-    animation = FuncAnimation(
+    animation = FuncAnimation(  # noqa: F841
         fig, animator.update_animation, frames=range(100), interval=MIN_TIMESTEP
     )
     plt.show()

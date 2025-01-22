@@ -51,7 +51,7 @@ Planned features before v0.1:
 - ~~Basic collision detection (skateboard only)~~
 - ~~Skateboard rotation on surfaces~~
 - ~~User control input~~
-- Smooth camera
+- ~~Smooth camera~~
 - Automatic map scaling
 - Auto-initialize in correct location
 
@@ -59,6 +59,7 @@ Planned future features:
 
 - Improved player character
 - ~~Improved collisions~~ (had to be done sooner than planned...)
+- Improve rotation snapping to be less aggressive
 - Improved graphics
 - Music
 - Support for log plots
