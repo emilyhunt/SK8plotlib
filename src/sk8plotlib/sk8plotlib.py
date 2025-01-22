@@ -1,3 +1,4 @@
+import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
@@ -15,7 +16,7 @@ matplotlib.use("QtAgg")
 def sk8plot(fig: Figure):
     animator = PlotAnimator(fig)
     animation = FuncAnimation(  # noqa: F841
-        fig, animator.update_animation, frames=range(100), interval=MIN_TIMESTEP
+        fig, animator.update_animation, frames=range(100), interval=0.
     )
     plt.show()
 
@@ -44,8 +45,8 @@ class PlotAnimator:
             self.last_frame_time = this_frame - MIN_TIMESTEP
         
         timestep = this_frame - self.last_frame_time
-        # self.skater.update(np.clip(self.average_timestep, MIN_TIMESTEP, 2*MIN_TIMESTEP))
-        self.skater.update(MIN_TIMESTEP)
+        self.skater.update(np.clip(self.average_timestep, MIN_TIMESTEP, 2*MIN_TIMESTEP))
+        # self.skater.update(self.average_timestep)
         self.camera.move_camera()
 
         # Framerate cap - calculated from a 1 second moving average
@@ -53,8 +54,10 @@ class PlotAnimator:
             self.average_timestep * (MAX_FRAMERATE - 1) / MAX_FRAMERATE
             + timestep * 1 / MAX_FRAMERATE
         )
-        # if self.average_timestep < MIN_TIMESTEP:
-        #     time.sleep(MIN_TIMESTEP - self.average_timestep)
+        if self.average_timestep < MIN_TIMESTEP:
+            print("av: ", self.average_timestep)
+            print("sleep: ", MIN_TIMESTEP - self.average_timestep)
+            time.sleep(MIN_TIMESTEP - self.average_timestep)
         print(f"FPS (av): {1 / self.average_timestep:.2f} | FPS: {1 / timestep:.2f}")
 
         self.last_frame_time = this_frame
