@@ -16,7 +16,7 @@ matplotlib.use("QtAgg")
 def sk8plot(fig: Figure):
     animator = PlotAnimator(fig)
     animation = FuncAnimation(  # noqa: F841
-        fig, animator.update_animation, frames=range(100), interval=0.
+        fig, animator.update_animation, frames=range(100), interval=0.0
     )
     plt.show()
 
@@ -36,28 +36,32 @@ class PlotAnimator:
         self.skater = Skater(self.fig, self.ax, self.line_data, self.input)
         self.camera = Camera(self.fig, self.ax, self.skater)
         self.camera.move_camera()
-        self.last_frame_time = None
+        self.render_time_start = None
         self.average_timestep = MIN_TIMESTEP
 
     def update_animation(self, frame):
-        this_frame = time.time()
-        if self.last_frame_time is None:
-            self.last_frame_time = this_frame - MIN_TIMESTEP
-        
-        timestep = this_frame - self.last_frame_time
-        self.skater.update(np.clip(self.average_timestep, MIN_TIMESTEP, 2*MIN_TIMESTEP))
-        # self.skater.update(self.average_timestep)
+        if self.render_time_start is None:
+            self.render_time_start = time.time()
+
+        self.skater.update(
+            np.clip(self.average_timestep, MIN_TIMESTEP, 4 * MIN_TIMESTEP)
+        )
         self.camera.move_camera()
+
+        time_end = time.time()
+        time_to_process_frame = time_end - self.render_time_start
 
         # Framerate cap - calculated from a 1 second moving average
         self.average_timestep = (
             self.average_timestep * (MAX_FRAMERATE - 1) / MAX_FRAMERATE
-            + timestep * 1 / MAX_FRAMERATE
+            + time_to_process_frame * 1 / MAX_FRAMERATE
         )
+        sleep_time = 0.0
         if self.average_timestep < MIN_TIMESTEP:
-            print("av: ", self.average_timestep)
-            print("sleep: ", MIN_TIMESTEP - self.average_timestep)
-            time.sleep(MIN_TIMESTEP - self.average_timestep)
-        print(f"FPS (av): {1 / self.average_timestep:.2f} | FPS: {1 / timestep:.2f}")
+            sleep_time = MIN_TIMESTEP - self.average_timestep
+            time.sleep(sleep_time)
+        print(
+            f"FPS (av): {1 / (self.average_timestep + sleep_time):.2f} | FPS: {1 / (time_to_process_frame + sleep_time):.2f}"  # | av: {self.average_timestep:.3f}"
+        )
 
-        self.last_frame_time = this_frame
+        self.render_time_start = time.time()

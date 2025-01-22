@@ -52,6 +52,7 @@ Planned features before v0.1:
 - ~~Skateboard rotation on surfaces~~
 - ~~User control input~~
 - ~~Smooth camera~~
+- ~~Automatic framerate & physics timestep scaling~~
 - Automatic map scaling
 - Auto-initialize in correct location
 
